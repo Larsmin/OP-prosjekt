@@ -34,7 +34,9 @@ public class Square {
 
     public void capture(Piece p) {
         Piece c = getOccupyingPiece();
-        if(c.)
+        if(c.getColor() == 1){
+            
+        }
     }
 
     // Returns the x-coordinate of the square.
