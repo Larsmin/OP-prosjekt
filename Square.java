@@ -33,7 +33,7 @@ public class Square {
         this.piece = null;
     }
 
-
+    // Code for capture of pieces
     public void capture(Piece p) {
         Piece c = getOccupyingPiece();
         if(p.getColor() == 0 && c.getColor() == 1){
