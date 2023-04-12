@@ -1,5 +1,3 @@
-package Pieces;
-
 public abstract class Piece {
     private boolean captured;
     private boolean white;
