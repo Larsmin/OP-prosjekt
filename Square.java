@@ -1,9 +1,11 @@
 public class Square {
     private Piece piece;
+    private Board board;
     private int x;
     private int y;
 
-    Square(int x, int y) {
+    Square(Board b, int x, int y) {
+        this.board = b;
         this.x = x;
         this.y = y; 
     }
@@ -34,9 +36,13 @@ public class Square {
 
     public void capture(Piece p) {
         Piece c = getOccupyingPiece();
-        if(c.getColor() == 1){
-            
+        if(p.getColor() == 0 && c.getColor() == 1){
+            board.blackPieces.remove(c);
         }
+        if(p.getColor() == 1 && c.getColor() == 0){
+            board.whitePieces.remove(c);
+        }
+        this.setOccupyingPiece(p);
     }
 
     // Returns the x-coordinate of the square.
