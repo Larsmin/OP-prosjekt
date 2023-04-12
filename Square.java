@@ -29,7 +29,7 @@ public class Square {
     public int getY() {
         return this.y;
     }
-    public int setY(int y) {
+    public void setY(int y) {
         this.y = y;
     }
 
