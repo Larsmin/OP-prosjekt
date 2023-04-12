@@ -1,9 +1,19 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
     //Representation of the board
-    private Square[][] board;
+    public Square[][] board;
 
-    private List<Piece> WhitePieces;
-    private List<Piece> BlackPieces;
+    public List<Piece> whitePieces;
+    public List<Piece> blackPieces;
+
+    public boolean whiteTurn;
+
+    public Board(){
+        board = new Square[8][8];
+        whitePieces = new ArrayList<>();
+        blackPieces = new ArrayList<>();
+        whiteTurn = true;
+    }
 }
