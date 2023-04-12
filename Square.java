@@ -3,20 +3,40 @@ public class Square {
     private int x;
     private int y;
 
-    Square(Piece piece, int x, int y) {
-        this.piece = piece;
+    Square(int x, int y) {
         this.x = x;
         this.y = y; 
     }
     // Returns the piece on a square, if the square does not have a piece this.piece will be None.
-    public Piece getPiece() {
+    public Piece getOccupyingPiece() {
         return this.piece;
     }
-    // Puts a new piece on the square.
-    public void setPiece(Piece p) {
-        this.piece = p;
 
+    // Return true if the square has a piece
+    public boolean isOccupied(){
+        if(this.piece != null){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
+    // Puts a new piece on the square.
+    public void setOccupyingPiece(Piece p) {
+        this.piece = p;
+    }
+
+    // Removes the piece from the current square
+    public void removePiece() {
+        this.piece = null;
+    }
+
+
+    public void capture(Piece p) {
+        Piece c = getOccupyingPiece();
+        if(c.)
+    }
+
     // Returns the x-coordinate of the square.
     public int getX() {
         return this.x;
@@ -32,7 +52,4 @@ public class Square {
     public void setY(int y) {
         this.y = y;
     }
-
-
-
 }

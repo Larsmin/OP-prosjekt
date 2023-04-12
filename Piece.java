@@ -1,12 +1,10 @@
 public abstract class Piece {
     private boolean captured;
-    private boolean white;
+    private int color;
     
-    Piece(boolean white) {
-        this.white = white;
-    }
-
-    public boolean isWhite() {
-        return this.white;
+    Piece(int color) {
+        if(color == 0 && color == 1){
+            this.color = color;
+        }
     }
 }
