@@ -43,7 +43,7 @@ public abstract class Piece {
         return this.color;
     }
 
-    public int[] getLinearOccupations(Square[][] board, int x, int y) {
+    public List<Square> getLinearOccupations(Square[][] board, int x, int y) {
         int lastYabove = 0;
         int lastXright = 7;
         int lastYbelow = 7;
@@ -82,8 +82,18 @@ public abstract class Piece {
         }
         
         int[] occups = {lastYabove, lastYbelow, lastXleft, lastXright};
+
+        ArrayList<Square> linearOccup = new ArrayList<Square>();
         
-        return occups;
+        for (int i = occups[0]; i <= occups[1]; i++) {
+            if (i != y) linearOccup.add(board[i][x]);
+        }
+        
+        for (int i = occups[2]; i <= occups[3]; i++) {
+            if (i != x) linearOccup.add(board[y][i]);
+        }
+
+        return linearOccup;
     }
 
     public List<Square> getDiagonalOccupations(Square[][] board, int x, int y) {
