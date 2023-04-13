@@ -43,7 +43,7 @@ public abstract class Piece {
         return this.color;
     }
 
-    public int[] getLinearOccupations(Square[][] board, int x, int y) {
+    public List<Square> getLinearOccupations(Square[][] board, int x, int y) {
         int lastYabove = 0;
         int lastXright = 7;
         int lastYbelow = 7;
@@ -82,8 +82,18 @@ public abstract class Piece {
         }
         
         int[] occups = {lastYabove, lastYbelow, lastXleft, lastXright};
+
+        ArrayList<Square> linearOccup = new ArrayList<Square>();
         
-        return occups;
+        for (int i = occups[0]; i <= occups[1]; i++) {
+            if (i != y) linearOccup.add(board[i][x]);
+        }
+        
+        for (int i = occups[2]; i <= occups[3]; i++) {
+            if (i != x) linearOccup.add(board[y][i]);
+        }
+
+        return linearOccup;
     }
 
     public List<Square> getDiagonalOccupations(Square[][] board, int x, int y) {
@@ -113,7 +123,7 @@ public abstract class Piece {
             }
         }
         
-        while (xSW >= 0 && ySW < 8) {
+        while (xSW >= 0 && ySW <= 0) {
             if (board[ySW][xSW].isOccupied()) {
                 if (board[ySW][xSW].getOccupyingPiece().getColor() == this.color) {
                     break;
@@ -128,7 +138,7 @@ public abstract class Piece {
             }
         }
         
-        while (xSE < 8 && ySE < 8) {
+        while (xSE < 8 && ySE <= 0) {
             if (board[ySE][xSE].isOccupied()) {
                 if (board[ySE][xSE].getOccupyingPiece().getColor() == this.color) {
                     break;
