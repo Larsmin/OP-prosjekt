@@ -58,13 +58,14 @@ public class Board {
         board[7][2].setOccupyingPiece(new Bishop());
         board[7][5].setOccupyingPiece(new Bishop());
 
-        for(int i = 0;i < 2; i++){
-            for (int j = 0;j < 8;j++){
+        for(int i = 0; i < 2; i++){
+            for (int j = 0; j < 8; j++){
                 blackPieces.add(board[i][j].getOccupyingPiece());
                 whitePieces.add(board[7-i][j].getOccupyingPiece());
             }
         }
     }
+    
     public Square[][] getBoard(){
         return this.board;
     }
@@ -81,5 +82,5 @@ public class Board {
         return this.selectedPiece;
     }
 
-    
+
 }
