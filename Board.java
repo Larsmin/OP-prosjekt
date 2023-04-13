@@ -8,7 +8,11 @@ public class Board {
     public List<Piece> whitePieces;
     public List<Piece> blackPieces;
 
-    public boolean whiteTurn;
+    private boolean whiteTurn;
+
+    private Piece selectedPiece;
+    private int selectedX;
+    private int selectedY;
 
     public Board(){
         board = new Square[8][8];
@@ -53,5 +57,29 @@ public class Board {
         board[0][5].setOccupyingPiece(new Bishop());
         board[7][2].setOccupyingPiece(new Bishop());
         board[7][5].setOccupyingPiece(new Bishop());
+
+        for(int i = 0;i < 2; i++){
+            for (int j = 0;j < 8;j++){
+                blackPieces.add(board[i][j].getOccupyingPiece());
+                whitePieces.add(board[7-i][j].getOccupyingPiece());
+            }
+        }
     }
+    public Square[][] getBoard(){
+        return this.board;
+    }
+
+    public boolean getTurn(){
+        return whiteTurn;
+    }
+
+    public void setSelectedPiece(Piece p){
+        this.selectedPiece = p;
+    }
+
+    public Piece getSelectedPiece(){
+        return this.selectedPiece;
+    }
+
+    
 }
