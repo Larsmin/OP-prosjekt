@@ -123,7 +123,7 @@ public abstract class Piece {
             }
         }
         
-        while (xSW >= 0 && ySW <= 0) {
+        while (xSW >= 0 && ySW < 8) {
             if (board[ySW][xSW].isOccupied()) {
                 if (board[ySW][xSW].getOccupyingPiece().getColor() == this.color) {
                     break;
@@ -138,7 +138,7 @@ public abstract class Piece {
             }
         }
         
-        while (xSE < 8 && ySE <= 0) {
+        while (xSE < 8 && ySE < 8) {
             if (board[ySE][xSE].isOccupied()) {
                 if (board[ySE][xSE].getOccupyingPiece().getColor() == this.color) {
                     break;
